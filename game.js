@@ -1,8 +1,6 @@
 const question = document.getElementById("question ");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 
-console.log(question)
-
 let currentQuestion = {}
 let acceptingAnswers = true
 let score = 0
@@ -44,7 +42,6 @@ startGame = () => {
     questionCounter = 0;
     score = 0;
     availableQuestions = [...questions];
-    console.log(availableQuestions);
     getNewQuestion();
 };
 
@@ -56,7 +53,6 @@ getNewQuestion = () => {
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
-    console.log(currentQuestion.guestion)
 
     choices.forEach(choice => {
         const number = choice.dataset["number"];
@@ -64,7 +60,6 @@ getNewQuestion = () => {
     });
 
     availableQuestions.splice(questionIndex, 1);
-    console.log(availableQuestions)
     acceptingAnswers = true;
 };
 
@@ -75,7 +70,6 @@ choices.forEach(choice => {
         acceptingAnswers = false;
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset['number']
-        console.log(selectedAnswer)
         getNewQuestion();
     })
 });
