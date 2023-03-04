@@ -18,7 +18,7 @@ let questions = [{
         answer: 1
     },
     {
-        question: "What is the correct syntax for referring to an exteernal script ?",
+        question: "What is the correct syntax for referring to an exteernal script called xxx.js ?",
         choice1: "<script href='xxx.js'>",
         choice2: "<script name='xxx.js'>",
         choice3: "<script src='xxx.js'>",
@@ -49,11 +49,35 @@ startGame = () => {
 };
 
 getNewQuestion = () => {
+    if (availableQuestions == 0 || questionCounter >= Max_QUESTIONS) {
+        return window.location.assign("/end.html")
+    }
     questionCounter++;
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
     console.log(currentQuestion.guestion)
+
+    choices.forEach(choice => {
+        const number = choice.dataset["number"];
+        choice.innerText = currentQuestion['choice' + number];
+    });
+
+    availableQuestions.splice(questionIndex, 1);
+    console.log(availableQuestions)
+    acceptingAnswers = true;
 };
+
+choices.forEach(choice => {
+    choice.addEventListener("click", e => {
+        if (!acceptingAnswers) return;
+
+        acceptingAnswers = false;
+        const selectedChoice = e.target;
+        const selectedAnswer = selectedChoice.dataset['number']
+        console.log(selectedAnswer)
+        getNewQuestion();
+    })
+});
 
 startGame();
