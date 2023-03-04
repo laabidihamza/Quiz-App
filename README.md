@@ -1,6 +1,6 @@
 # Quiz App
 
-Welcome to Quiz-App! This is a simple quiz application built using HTML, CSS, and JavaScript.
+Welcome to Quiz App! This is a simple quiz application built using HTML, CSS, and JavaScript.
 
 ## Table of Contents
 
@@ -25,7 +25,10 @@ Quiz-App is built using the following technologies:
 
 ## Installation
 
-To use this application, simply clone this repository to your local machine using the following command [here.](git clone https://github.com/laabidihamza/Quiz-App.git)
+To use this application, simply clone this repository to your local machine using the following command:
+```bash 
+git clone https://github.com/laabidihamza/Quiz-App.git
+```
 
 ## Usage
 
