@@ -32,7 +32,7 @@ git clone https://github.com/laabidihamza/Quiz-App.git
 
 ## Usage
 
-To use Quiz-App, simply open the **'index.html'** file in your web browser. The quiz consists of 10 multiple-choice questions. Select an answer for each question and click the "Submit" button to receive your score.
+To use Quiz-App, simply open the **'index.html'** file in your web browser. The quiz consists of multiple-choice questions. Select an answer for each question to receive your score.
 
 ## Contributing
 
