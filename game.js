@@ -1,5 +1,5 @@
 const question = document.getElementById("question ");
-const choices = Array.from(document.getElementsByClassName("choice-text"));
+const choices = Array.from(document.getElementsByClassName("choice-text "));
 
 let currentQuestion = {}
 let acceptingAnswers = true
@@ -56,7 +56,10 @@ getNewQuestion = () => {
 
     choices.forEach(choice => {
         const number = choice.dataset["number"];
+        console.log(number)
+        console.log(currentQuestion)
         choice.innerText = currentQuestion['choice' + number];
+        console.log(choice)
     });
 
     availableQuestions.splice(questionIndex, 1);
@@ -70,7 +73,15 @@ choices.forEach(choice => {
         acceptingAnswers = false;
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset['number']
-        getNewQuestion();
+
+        const classToApply = selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+        selectedChoice.parentElement.classList.add(classToApply);
+
+        setTimeout(() => {
+            selectedChoice.parentElement.classList.remove(classToApply);
+
+            getNewQuestion();
+        }, 800);
     })
 });
 
